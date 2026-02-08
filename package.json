@@ -1,0 +1,33 @@
+{
+  "name": "chemical-visualizer",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^24.6.0",
+    "wait-on": "^7.0.1",
+    "concurrently": "^8.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "electron-start": "concurrently \"npm:start\" \"wait-on http://localhost:3000 && electron .\"",
+    "build": "react-scripts build",
+    "electron-build": "npm run build && electron-builder"
+  },
+  "main": "public/electron.js",
+  "build": {
+    "appId": "com.chemical.visualizer",
+    "files": [
+      "build/**/*",
+      "public/electron.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
